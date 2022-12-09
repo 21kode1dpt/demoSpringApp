@@ -65,17 +65,11 @@ public class CarController {
                 .toList();
     }
 
-    @DeleteMapping("car")
-    public Car deleteCarsByBrand(@RequestParam String brand) {
+    // Usage of @PathVariable
+    @DeleteMapping("car/{brand}")
+    public Car deleteCarByBrand(@PathVariable String brand) {
         Car car = cars.get(brand);
         cars.remove(brand);
-        return car;
-    }
-
-    @DeleteMapping("car")
-    public Car deleteCarsByModel(@RequestParam String model) {
-        Car car = cars.get(model);
-        cars.remove(model);
         return car;
     }
 
